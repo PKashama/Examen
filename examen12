@@ -1,0 +1,17 @@
+import os
+
+
+with open('departementen.csv', 'r') as file:
+    departementen = file.readlines()
+
+
+if os.path.exists('Emailhandtekeningen'):
+    print('---- DOCUMENTEN BESTAAN AL ----')
+else:
+    os.makedirs('Emailhandtekeningen', exist_ok=True)
+
+    for departement in departementen:
+        departement = departement.strip()
+        klas_document = os.path.join('Emailhandtekeningen', departement)
+        with open(klas_document, 'w') as file:
+            file.write('')
