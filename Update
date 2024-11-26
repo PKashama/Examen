@@ -43,7 +43,7 @@ else:
 
 # Tkinter setup
 root = Tk()
-root.title('Password Manager')
+root.title('leerlingenfiches')
 root.minsize(width=450, height=450)
 
 # Witte ruimte linkerkant
