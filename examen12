@@ -1,7 +1,7 @@
 import os
+import logging
 
-
-with open('departementen.csv', 'r') as file:
+with open('departementen.csv', 'r', encoding='utf-8-sig') as file:
     departementen = file.readlines()
 
 
@@ -15,3 +15,29 @@ else:
         klas_document = os.path.join('Emailhandtekeningen', departement)
         with open(klas_document, 'w') as file:
             file.write('')
+    logger = os.path.join('Logs')
+    with open(logger, 'w') as file:
+        file.write('')
+
+
+
+
+# Maak een logger-object aan
+logger = logging.getLogger('mijn_logger')
+logger.setLevel(logging.DEBUG)
+
+# Maak een bestandsbeheerder om berichten naar een bestand te loggen
+handler = logging.FileHandler('app.log')
+handler.setLevel(logging.DEBUG)
+
+# Definieer het logberichtformaat
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+
+# Koppel de beheerder aan de logger
+logger.addHandler(handler)
+
+# Log enkele berichten
+logger.info('Map is aangemaakt.')
+# Haal het commentaar van de onderstaande regel als je een debugbericht wilt loggen
+# logger.debug('Dit is een debugbericht.')
